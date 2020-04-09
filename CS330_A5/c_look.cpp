@@ -1,15 +1,16 @@
 #include "diskscheduling.h"
 /*
-*	SSTF (Shortest Seek Time First) algorithm
-*	- The request with the minimum seek time from the current head position is selected next.
+*	C-LOOK (Circular LOOK) algorithm
+*	- Similar to C-SCAN where the head moves from one end of the disk to the other.
+*		Unlike C-SCAN, the head only moves as far as the last request in each direction.
 */
 
-void sstf(diskType disk[], int size, int init) {
+void c_look(diskType disk[], int size, int init) {
 	int elapsed = 0;
 	int t_difference = 0;
 
 	cout << "----------------------------------------------------------------\n";
-	cout << "***SSTF Algorithm:***\n";
+	cout << "***C-LOOK Algorithm:***\n";
 
 	for (int i = 0; i < size; i++) {
 		int min_t = MAXVAL;
@@ -25,7 +26,7 @@ void sstf(diskType disk[], int size, int init) {
 		init = disk[min_position].position;
 		disk[min_position].visited = true;
 		elapsed = t_difference + elapsed;
-		cout << "* Head Position: " << disk[min_position].position 
+		cout << "* Head Position: " << disk[min_position].position
 			<< ", Movement time from last position: " << t_difference << " *\n";
 	}
 

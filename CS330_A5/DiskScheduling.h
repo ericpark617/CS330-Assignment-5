@@ -10,19 +10,20 @@
 using namespace std;
 
 const int MAXSIZE = 250;
-const int MAXVAL = 9999;
+const int MAXVAL = 200;
 const int MINVAL = 0;
 
-struct disk {
+struct diskType {
 	int position;
 	bool visited;
 };
 
-void fcfs(disk queue[], int size, int init);
-void sstf(disk queue[], int size, int init);
-void scan(disk queue[], int size, int init);
-void c_scan(disk queue[], int size, int init);
-void c_look(disk queue[], int size, int init);
-int insertionSort(disk queue[], int size, int val);
+void fcfs(diskType disk[], int size, int init);
+void sstf(diskType disk[], int size, int init);
+void scan(diskType disk[], int size, int init);
+void c_scan(diskType disk[], int size, int init);
+void c_look(diskType disk[], int size, int init);
+int findInit(diskType disk[], int size, int init);
+void selectionSort(diskType disk[], int size);
 
 #endif

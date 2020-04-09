@@ -35,10 +35,13 @@
     <ClCompile Include="selectionSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="insertionSort.cpp">
+    <ClCompile Include="findInit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cscan.cpp">
+    <ClCompile Include="c_scan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="c_look.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

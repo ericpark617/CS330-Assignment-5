@@ -23,7 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>CS330_A5</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Visual Studio Project</ProjectName>
+    <ProjectName>CS330_A5</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -146,9 +146,10 @@
     <ClInclude Include="DiskScheduling.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cscan.cpp" />
+    <ClCompile Include="c_look.cpp" />
+    <ClCompile Include="c_scan.cpp" />
     <ClCompile Include="fcfs.cpp" />
-    <ClCompile Include="insertionSort.cpp" />
+    <ClCompile Include="findInit.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scan.cpp" />
     <ClCompile Include="selectionSort.cpp" />
