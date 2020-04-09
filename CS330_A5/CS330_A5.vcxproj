@@ -149,7 +149,8 @@
     <ClCompile Include="c_look.cpp" />
     <ClCompile Include="c_scan.cpp" />
     <ClCompile Include="fcfs.cpp" />
-    <ClCompile Include="findInit.cpp" />
+    <ClCompile Include="findInitRight.cpp" />
+    <ClCompile Include="findInitLeft.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scan.cpp" />
     <ClCompile Include="selectionSort.cpp" />

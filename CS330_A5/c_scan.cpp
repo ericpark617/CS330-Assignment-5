@@ -8,6 +8,7 @@
 void c_scan(diskType disk[], int size, int init) {
 	int elapsed = 0;
 	int t_difference = 0;
+	int total_diff_sq = 0;
 	diskType sortedDisk[MAXSIZE];
 
 	cout << "----------------------------------------------------------------\n";
@@ -22,9 +23,9 @@ void c_scan(diskType disk[], int size, int init) {
 	size = size + 2;
 
 	selectionSort(sortedDisk, size);
-	int init_head = findInit(sortedDisk, size, init);
 
 	if (abs(init - MINVAL) < abs(init - MAXVAL)) {
+		int init_head = findInitRight(sortedDisk, size, init);
 		for (int i = init_head; i >= 0; i--) {
 			if (i == init_head) {
 				t_difference = 0;
@@ -33,6 +34,7 @@ void c_scan(diskType disk[], int size, int init) {
 				t_difference = abs(sortedDisk[i].position - sortedDisk[i + 1].position);
 			}
 			elapsed = t_difference + elapsed;
+			total_diff_sq = total_diff_sq + t_difference * t_difference;
 			cout << "* Head Position: " << sortedDisk[i].position
 				<< ", Movement time from last position: " << t_difference << " *\n";
 		}
@@ -44,11 +46,13 @@ void c_scan(diskType disk[], int size, int init) {
 				t_difference = abs(sortedDisk[j].position - sortedDisk[j + 1].position);
 			}
 			elapsed = t_difference + elapsed;
+			total_diff_sq = total_diff_sq + t_difference * t_difference;
 			cout << "* Head Position: " << sortedDisk[j].position
 				<< ", Movement time from last position: " << t_difference << " *\n";
 		}
 	}
 	else {
+		int init_head = findInitLeft(sortedDisk, size, init);
 		for (int j = init_head; j < size; j++) {
 			if (j == init_head) {
 				t_difference = 0;
@@ -57,9 +61,9 @@ void c_scan(diskType disk[], int size, int init) {
 				t_difference = abs(sortedDisk[j].position - sortedDisk[j - 1].position);
 			}
 			elapsed = t_difference + elapsed;
+			total_diff_sq = total_diff_sq + t_difference * t_difference;
 			cout << "* Head Position: " << sortedDisk[j].position
 				<< ", Movement time from last position: " << t_difference << " *\n";
-			cout << "tst";
 		}
 		for (int i = 0; i < init_head; i++) {
 			if (i == 0) {
@@ -69,14 +73,14 @@ void c_scan(diskType disk[], int size, int init) {
 				t_difference = abs(sortedDisk[i].position - sortedDisk[i - 1].position);
 			}
 			elapsed = t_difference + elapsed;
+			total_diff_sq = total_diff_sq + t_difference * t_difference;
 			cout << "* Head Position: " << sortedDisk[i].position
 				<< ", Movement time from last position: " << t_difference << " *\n";
-			cout << "test";
 		}
 	}
 
-
 	cout << "Total movement time: " << elapsed << "\n";
-	cout << "Average movement time: " << ((float)elapsed / size + 1) << "\n";
+	cout << "Average movement time: " << ((float)elapsed / size) << "\n";
+	cout << "Standard Deviation of movement time: " << sqrt(total_diff_sq / size) << "\n";
 	cout << "----------------------------------------------------------------\n";
 }

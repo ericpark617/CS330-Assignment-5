@@ -6,6 +6,8 @@
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
+#include <chrono>
+#include <math.h>
 
 using namespace std;
 
@@ -23,7 +25,8 @@ void sstf(diskType disk[], int size, int init);
 void scan(diskType disk[], int size, int init);
 void c_scan(diskType disk[], int size, int init);
 void c_look(diskType disk[], int size, int init);
-int findInit(diskType disk[], int size, int init);
+int findInitRight(diskType disk[], int size, int init);
+int findInitLeft(diskType disk[], int size, int init);
 void selectionSort(diskType disk[], int size);
 
 #endif

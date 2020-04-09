@@ -11,6 +11,7 @@ int main() {
 	diskType disk[MAXSIZE];
 	int size = 1;
 	string filename;
+
 	cout << "Enter the name of the data file: ";
 	cin >> filename;
 
@@ -34,11 +35,35 @@ int main() {
 
 	inFile.close();
 
+	auto start = std::chrono::steady_clock::now();
 	fcfs(disk, size, init);
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> run_time = end - start;
+	cout << "FCFS Algorithm run time: " << run_time.count() << " seconds\n";
+
+	start = std::chrono::steady_clock::now();
 	sstf(disk, size, init);
+	end = std::chrono::steady_clock::now();
+	run_time = end - start;
+	cout << "SSTF Algorithm run time: " << run_time.count() << " seconds\n";
+
+	start = std::chrono::steady_clock::now();
 	scan(disk, size, init);
+	end = std::chrono::steady_clock::now();
+	run_time = end - start;
+	cout << "SCAN Algorithm run time: " << run_time.count() << " seconds\n";
+
+	start = std::chrono::steady_clock::now();
 	c_scan(disk, size, init);
+	end = std::chrono::steady_clock::now();
+	run_time = end - start;
+	cout << "C-SCAN Algorithm run time: " << run_time.count() << " seconds\n";
+
+	start = std::chrono::steady_clock::now();
 	c_look(disk, size, init);
+	end = std::chrono::steady_clock::now();
+	run_time = end - start;
+	cout << "C-LOOK Algorithm run time: " << run_time.count() << " seconds\n";
 
 	return 0;
 }
